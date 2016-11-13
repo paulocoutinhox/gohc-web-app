@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse"
+					aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" routerLink="/home" href="javascript: void(0);">
+				<img src="../../../static/images/logo-header.png" border="0" alt="" class="logo pull-left"/>
+				GoHC
+			</a>
+		</div>
+		<div id="nav-collapse" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a routerLink="/healthcheck/list" href="javascript: void(0);">
+						<span>{{hcCount}}</span>
+						<span>healthchecks</span>
+					</a>
+				</li>
+				<li>
+					<a routerLink="/dashboard" href="javascript: void(0);">Dashboard</a>
+				</li>
+				<li>
+					<a routerLink="/home" href="javascript: void(0);">Home</a>
+				</li>
+				<li>
+					<a routerLink="/system/settings" href="javascript: void(0);">Settings</a>
+				</li>
+				<li>
+					<a routerLink="/about" href="javascript: void(0);">About</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

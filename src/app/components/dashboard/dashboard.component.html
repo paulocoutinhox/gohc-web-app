@@ -1,0 +1,107 @@
+<div class="container-dashboard">
+	<div *ngIf="showData">
+		<span *ngFor="let hc of hcList">
+			<span [ngSwitch]="hc?.status">
+
+				<div *ngSwitchCase="healthcheckStatusEnum.SUCCESS" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 hc-item success">
+					<div>
+						<p class="icon glyphicon glyphicon-ok-sign"></p>
+						<h5 class="title">{{hc.description}}</h5>
+
+						<span [ngSwitch]="hc?.type">
+							<span *ngSwitchCase="healthcheckTypeEnum.PING">
+								<small class="type">Ping</small>
+								<h6 class="ping">{{hc.ping | pingFormat}}</h6>
+							</span>
+
+							<span *ngSwitchCase="healthcheckTypeEnum.RANGE">
+								<small class="type">Range</small>
+								<h6 class="range">{{hc.range}}</h6>
+							</span>
+
+							<span *ngSwitchCase="healthcheckTypeEnum.MANUAL">
+								<small class="type">Manual</small>
+								<h6 class="manual">{{hc.status}}</h6>
+							</span>
+						</span>
+					</div>
+				</div>
+
+				<div *ngSwitchCase="healthcheckStatusEnum.WARNING" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 hc-item warning">
+					<div>
+						<p class="icon glyphicon glyphicon-exclamation-sign"></p>
+						<h5 class="title">{{hc.description}}</h5>
+
+						<span [ngSwitch]="hc?.type">
+							<span *ngSwitchCase="healthcheckTypeEnum.PING">
+								<small class="type">Ping</small>
+								<h6 class="ping">{{hc.ping | pingFormat}}</h6>
+							</span>
+
+							<span *ngSwitchCase="healthcheckTypeEnum.RANGE">
+								<small class="type">Range</small>
+								<h6 class="range">{{hc.range}}</h6>
+							</span>
+
+							<span *ngSwitchCase="healthcheckTypeEnum.MANUAL">
+								<small class="type">Manual</small>
+								<h6 class="manual">{{hc.status}}</h6>
+							</span>
+						</span>
+					</div>
+				</div>
+
+				<div *ngSwitchCase="healthcheckStatusEnum.ERROR" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 hc-item error">
+					<div>
+						<p class="icon glyphicon glyphicon-remove-sign"></p>
+						<h5 class="title">{{hc.description}}</h5>
+
+						<span [ngSwitch]="hc?.type">
+							<span *ngSwitchCase="healthcheckTypeEnum.PING">
+								<small class="type">Ping</small>
+								<h6 class="ping">{{hc.ping | pingFormat}}</h6>
+							</span>
+
+							<span *ngSwitchCase="healthcheckTypeEnum.RANGE">
+								<small class="type">Range</small>
+								<h6 class="range">{{hc.range}}</h6>
+							</span>
+
+							<span *ngSwitchCase="healthcheckTypeEnum.MANUAL">
+								<small class="type">Manual</small>
+								<h6 class="manual">{{hc.status}}</h6>
+							</span>
+						</span>
+					</div>
+				</div>
+
+			</span>
+		</span>
+	</div>
+
+	<div style="padding: 0 15px">
+		<div *ngIf="showEmptyData">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div>No healthchecks found</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="error-data" *ngIf="showError">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h3>Problem while loading healthcheck list</h3>
+					<p id="error-data-message"></p>
+					<button type="button" class="btn btn-primary" (click)="load()">Try again</button>
+				</div>
+			</div>
+		</div>
+
+		<div *ngIf="showLoading">
+			<div class="panel panel-default">
+				<div class="panel-body">Loading...</div>
+			</div>
+		</div>
+	</div>
+</div>
