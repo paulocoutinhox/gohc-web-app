@@ -35,6 +35,7 @@
 			stopTimer() {
 				if (this.timerHcList) {
 					window.clearInterval(this.timerHcList);
+					this.timerHcList = 0;
 				}
 			}
 		},
