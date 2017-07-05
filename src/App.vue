@@ -27,9 +27,6 @@
 					.then(response => {
 						this.hcCount = response.data.data.count;
 						this.hcList = response.data.data.list;
-
-						this.$emit('hcCountUpdated', this.hcCount);
-						this.$emit('hcListUpdated', this.hcList);
 					})
 					.catch(e => {
 						console.log(e);
