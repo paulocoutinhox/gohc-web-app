@@ -20,6 +20,10 @@
 			"jquery",
 			"toastr",
 			"nprogress"
+		],
+		"lib": [
+			"es2015",
+			"dom"
 		]
 	},
 	"exclude": [

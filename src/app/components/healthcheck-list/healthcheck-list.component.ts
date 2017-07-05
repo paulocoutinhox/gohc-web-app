@@ -69,6 +69,8 @@ export class HealthcheckListComponent implements OnInit {
 					let hc = this.hcList[hcIndex];
 					let hcStatus = hc.status;
 
+					console.log(hcStatus);	
+
 					switch (hcStatus) {
 						case 'success':
 							chartDataForSuccess += 1;
@@ -101,6 +103,8 @@ export class HealthcheckListComponent implements OnInit {
 					chartColors.push("#ff3e43");
 					chartDataset.push(chartDataForError);
 				}
+
+				console.log(chartLabels);
 
 				this.chartData = {
 					type: 'doughnut',
