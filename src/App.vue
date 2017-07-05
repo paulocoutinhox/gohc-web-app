@@ -16,32 +16,29 @@
 		name: 'app',
 		data () {
 			return {
-				timerHcList: null,
 				hcCount: 0,
 				hcList: []
 			};
 		},
 		methods: {
+			startGetHealthcheckList() {
+				window.setTimeout(this.getHealthcheckList, 1000);
+			},
 			getHealthcheckList() {
 				axios.get('/api/healthcheck/list')
 					.then(response => {
 						this.hcCount = response.data.data.count;
 						this.hcList = response.data.data.list;
+						this.startGetHealthcheckList();
 					})
 					.catch(e => {
 						console.log(e);
+						this.startGetHealthcheckList();
 					});
-			},
-			stopTimer() {
-				if (this.timerHcList) {
-					window.clearInterval(this.timerHcList);
-					this.timerHcList = 0;
-				}
 			}
 		},
 		mounted() {
-			this.stopTimer();
-			this.timerHcList = window.setInterval(this.getHealthcheckList, 1000);
+			this.getHealthcheckList();
 		}
 	}
 </script>

@@ -61,4 +61,8 @@
 	.container .logo {
 		width: 200px;
 	}
+
+	.columns {
+		margin: 0;
+	}
 </style>
