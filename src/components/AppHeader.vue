@@ -30,8 +30,7 @@
 			}
 		},
 		props: [
-			'hcCount',
-			'hcList'
+			'hcCount'
 		],
 		methods: {
 			toggleMenu() {
