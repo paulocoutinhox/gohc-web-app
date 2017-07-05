@@ -7,14 +7,15 @@
 					GoHC
 				</router-link>
 			</div>
-			<span class="nav-toggle">
+			<span class="nav-toggle" v-on:click="toggleMenu()">
 				<span></span>
 				<span></span>
 				<span></span>
             </span>
-			<div class="nav-right nav-menu">
-				<router-link to="/" class="nav-item is-tab is-hidden-mobile">Home</router-link>
-				<router-link to="/about" class="nav-item is-tab is-hidden-mobile">About</router-link>
+			<div class="nav-right nav-menu" v-bind:class="{ 'is-active': menuActive }">
+				<router-link to="/healthcheck/list" class="nav-item is-tab">{{ hcCount }} healtchchecks</router-link>
+				<router-link to="/" class="nav-item is-tab">Home</router-link>
+				<router-link to="/about" class="nav-item is-tab">About</router-link>
 			</div>
 		</div>
 	</nav>
@@ -24,7 +25,15 @@
 	export default {
 		name: 'app-header',
 		data () {
-			return {}
+			return {
+				menuActive: false,
+				hcCount: this.hcCount
+			}
+		},
+		methods: {
+			toggleMenu() {
+				this.menuActive = !this.menuActive;
+			}
 		}
 	}
 </script>

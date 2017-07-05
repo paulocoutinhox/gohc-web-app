@@ -6,7 +6,7 @@
 				<img src="../assets/images/logo.png" border="0" alt="" class="logo"/>
 			</p>
 			<br/>
-			<p>Welcome! Click on button below to open dashboard!.</p>
+			<p>Welcome! Click on button below to open dashboard!</p>
 			<br/>
 			<br/>
 			<p>
@@ -32,6 +32,7 @@
 				<p>You can see your checks with a nice and friendly web responsive interface</p>
 			</div>
 		</div>
+
 		<app-footer></app-footer>
 	</div>
 </template>
