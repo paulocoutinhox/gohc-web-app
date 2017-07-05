@@ -16,26 +16,27 @@
 		name: 'app',
 		data () {
 			return {
-				timerHcList: null
+				timerHcList: null,
+				hcCount: {},
+				hcList: {}
 			};
 		},
-		props: [
-			'hcCount',
-			'hcList'
-		],
 		methods: {
 			getHealthcheckList() {
 				axios.get('/api/healthcheck/list')
 					.then(response => {
 						this.hcCount = response.data.data.count;
 						this.hcList = response.data.data.list;
+
+						this.$emit('hcCountUpdated', this.hcCount);
+						this.$emit('hcListUpdated', this.hcList);
 					})
 					.catch(e => {
 						console.log(e);
 					});
 			},
 			stopTimer() {
-				if (this.timerHcList) {
+				if (this.timerHcList != null) {
 					window.clearInterval(this.timerHcList);
 				}
 			}

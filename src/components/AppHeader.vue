@@ -26,10 +26,13 @@
 		name: 'app-header',
 		data () {
 			return {
-				menuActive: false,
-				hcCount: this.hcCount
+				menuActive: false
 			}
 		},
+		props: [
+			'hcCount',
+			'hcList'
+		],
 		methods: {
 			toggleMenu() {
 				this.menuActive = !this.menuActive;
