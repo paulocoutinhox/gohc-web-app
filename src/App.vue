@@ -33,7 +33,7 @@
 					});
 			},
 			stopTimer() {
-				if (this.timerHcList != null) {
+				if (this.timerHcList) {
 					window.clearInterval(this.timerHcList);
 				}
 			}
