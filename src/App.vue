@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<app-header></app-header>
+		<app-header v-bind:hcCount="hcCount"></app-header>
 		<router-view></router-view>
 	</div>
 </template>
@@ -17,8 +17,8 @@
 		data () {
 			return {
 				timerHcList: null,
-				hcCount: {},
-				hcList: {}
+				hcCount: 0,
+				hcList: []
 			};
 		},
 		methods: {
