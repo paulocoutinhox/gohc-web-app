@@ -41,7 +41,7 @@
 	}
 </script>
 
-<style scope>
+<style scoped>
 	.container {
 		text-align: center;
 	}
