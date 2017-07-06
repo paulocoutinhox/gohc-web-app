@@ -76,7 +76,7 @@
 			}
 		},
 		filters: {
-			pingFormat: value => {
+			pingFormat (value) {
 				if (!value) return '';
 
 				value = parseInt(value);
