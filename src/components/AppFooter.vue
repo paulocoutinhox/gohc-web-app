@@ -13,6 +13,6 @@
 
 <style scoped>
 	div {
-		padding: 20px 0;
+		padding: 5px 0;
 	}
 </style>

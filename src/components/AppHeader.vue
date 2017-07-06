@@ -29,15 +29,17 @@
 				menuActive: false
 			}
 		},
-		props: [
-			'hcCount'
-		],
 		methods: {
 			toggleMenu() {
 				this.menuActive = !this.menuActive;
 			},
 			closeMenu() {
 				this.menuActive = false;
+			}
+		},
+		computed: {
+			hcCount () {
+				return this.$store.getters.hcCount;
 			}
 		}
 	}

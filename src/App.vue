@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<app-header v-bind:hcCount="hcCount"></app-header>
+		<app-header></app-header>
 		<router-view></router-view>
 	</div>
 </template>
@@ -14,12 +14,6 @@
 			AppHeader
 		},
 		name: 'app',
-		data () {
-			return {
-				hcCount: 0,
-				hcList: []
-			};
-		},
 		methods: {
 			startGetHealthcheckList() {
 				window.setTimeout(this.getHealthcheckList, 1000);
@@ -27,8 +21,9 @@
 			getHealthcheckList() {
 				axios.get('/api/healthcheck/list')
 					.then(response => {
-						this.hcCount = response.data.data.count;
-						this.hcList = response.data.data.list;
+						this.$store.dispatch('setHcCount', response.data.data.count);
+						this.$store.dispatch('setHcList', response.data.data.list);
+
 						this.startGetHealthcheckList();
 					})
 					.catch(e => {
