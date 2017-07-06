@@ -6,9 +6,12 @@ import router from './router'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 import store from './vuex/store'
+import pingFormatFilter from "./filters/ping-format";
 
 Vue.config.productionTip = false
 Vue.use(Buefy)
+
+Vue.filter('pingFormat', pingFormatFilter)
 
 /* eslint-disable no-new */
 new Vue({
