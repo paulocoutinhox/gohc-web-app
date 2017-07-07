@@ -4,7 +4,7 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import HealthcheckList from '@/components/HealthcheckList'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
 	mode: 'history',
@@ -25,4 +25,4 @@ export default new Router({
 			component: HealthcheckList
 		}
 	]
-})
+});

@@ -7,11 +7,13 @@ import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 import store from './vuex/store'
 import pingFormatFilter from "./filters/ping-format";
+import hcStatusFormatFilter from "./filters/hc-status-format";
 
-Vue.config.productionTip = false
-Vue.use(Buefy)
+Vue.config.productionTip = false;
+Vue.use(Buefy);
 
-Vue.filter('pingFormat', pingFormatFilter)
+Vue.filter('pingFormat', pingFormatFilter);
+Vue.filter('hcStatusFormat', hcStatusFormatFilter);
 
 /* eslint-disable no-new */
 new Vue({
@@ -20,4 +22,4 @@ new Vue({
 	router,
 	template: '<App/>',
 	components: {App}
-})
+});
