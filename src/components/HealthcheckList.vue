@@ -25,7 +25,7 @@
 				</b-table-column>
 
 				<b-table-column field="status" label="Status" sortable>
-					<span v-html="props.row.status | hcStatusFormat"></span>
+					<span v-html="$options.filters.hcStatusFormat(props.row.status)"></span>
 				</b-table-column>
 
 				<b-table-column field="type" label="Value" width="200">
