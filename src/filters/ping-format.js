@@ -10,7 +10,7 @@ export default function (value) {
 	if (!value) return '';
 
 	value = parseInt(value);
-	
+
 	let newValue = 0;
 	let text = "";
 	let forceSingular = false;
