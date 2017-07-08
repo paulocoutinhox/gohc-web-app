@@ -7,7 +7,7 @@ import {
 } from "../utils/ping-time-constants";
 
 export default function (value) {
-	if (!value) return '';
+	if (!value) return '0';
 
 	value = parseInt(value);
 
