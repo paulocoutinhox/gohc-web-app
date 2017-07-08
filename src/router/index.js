@@ -4,6 +4,8 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import HealthcheckList from '@/components/HealthcheckList'
 import Dashboard from '@/components/Dashboard'
+import Settings from '@/components/Settings'
+import NotFound from '@/components/NotFound'
 
 Vue.use(Router);
 
@@ -29,6 +31,15 @@ export default new Router({
 			path: '/dashboard',
 			name: 'Dashboard',
 			component: Dashboard
+		},
+		{
+			path: '/settings',
+			name: 'Settings',
+			component: Settings
+		},
+		{
+			path: '*',
+			component: NotFound
 		}
 	]
 });

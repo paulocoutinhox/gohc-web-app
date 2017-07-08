@@ -1,7 +1,7 @@
 <template>
 	<div class="column is-2-desktop is-3-tablet is-6-mobile">
 		<div class="hc-item" v-bind:class="hcItemContainerClass(item.status)">
-			<span class="icon">
+			<span class="icon is-medium">
 				<span class="fa" v-bind:class="hcItemIconClass(item.status)"></span>
 			</span>
 
@@ -110,7 +110,6 @@
 	.hc-item .icon span {
 		padding: 0;
 		margin: 0;
-		font-size: 30px;
 	}
 
 	.hc-item .ping,
