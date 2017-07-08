@@ -14,6 +14,7 @@
             </span>
 			<div class="nav-right nav-menu" v-bind:class="{ 'is-active': menuActive }">
 				<router-link to="/healthcheck/list" class="nav-item is-tab" v-on:click.native="closeMenu()">{{ hcCount }} healtchchecks</router-link>
+				<router-link to="/dashboard" class="nav-item is-tab" v-on:click.native="closeMenu()">Dashboard</router-link>
 				<router-link to="/" class="nav-item is-tab" v-on:click.native="closeMenu()">Home</router-link>
 				<router-link to="/about" class="nav-item is-tab" v-on:click.native="closeMenu()">About</router-link>
 			</div>

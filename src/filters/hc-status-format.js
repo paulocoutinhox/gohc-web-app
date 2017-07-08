@@ -11,5 +11,5 @@ export default function (value) {
 		return '<span class="tag is-danger">error</span>';
 	}
 
-	return '<span class="tag is-info">' + value + '</span>';
+	return '<span class="tag is-light">' + value + '</span>';
 }

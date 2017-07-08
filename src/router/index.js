@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/About'
 import HealthcheckList from '@/components/HealthcheckList'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ export default new Router({
 			path: '/healthcheck/list',
 			name: 'HealthcheckList',
 			component: HealthcheckList
+		},
+		{
+			path: '/dashboard',
+			name: 'Dashboard',
+			component: Dashboard
 		}
 	]
 });
