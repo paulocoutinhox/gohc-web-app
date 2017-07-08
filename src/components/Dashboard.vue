@@ -64,8 +64,15 @@
 				return '';
 			},
 			hcItemIconClass(value) {
-				console.log(value + '++++');
-				return 'fa-check-circle';
+				if (value === HC_STATUS_SUCCESS) {
+					return 'fa-check-circle';
+				} else if (value === HC_STATUS_WARNING) {
+					return 'exclamation-circle';
+				} else if (value === HC_STATUS_ERROR) {
+					return 'fa-times-circle';
+				}
+
+				return '';
 			}
 		},
 		computed: {
