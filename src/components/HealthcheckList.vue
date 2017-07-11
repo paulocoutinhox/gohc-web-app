@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
 		<b-table
+			ref="hcTable"
 			:data="hcList"
 			:bordered="true"
 			:striped="true"
@@ -74,6 +75,10 @@
 			hcCount() {
 				return this.$store.getters.hcCount;
 			}
+		},
+		mounted() {
+			this.$refs.hcTable.initSort();
+			console.log('MOUNTED');
 		}
 	}
 </script>
