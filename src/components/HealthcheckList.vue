@@ -81,8 +81,8 @@
 			}
 		},
 		mounted() {
-			//setTimeout(this.initSort, 1);
-			this.$nextTick(() => this.$refs.hcTable.initSort());
+			setTimeout(this.initSort, 1);
+			//this.$nextTick(() => this.$refs.hcTable.initSort());
 		}
 	}
 </script>
