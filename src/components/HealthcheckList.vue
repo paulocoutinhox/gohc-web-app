@@ -66,6 +66,10 @@
 			},
 			hcTypeIsManual(value) {
 				return (value === HC_TYPE_MANUAL);
+			},
+			initSort() {
+				this.$refs.hcTable.initSort();
+				console.log('sorted');
 			}
 		},
 		computed: {
@@ -77,8 +81,8 @@
 			}
 		},
 		mounted() {
-			this.$refs.hcTable.initSort();
-			console.log('MOUNTED');
+			//setTimeout(this.initSort, 1);
+			this.$nextTick(() => this.$refs.hcTable.initSort());
 		}
 	}
 </script>

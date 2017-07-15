@@ -27,7 +27,6 @@
 						this.startGetHealthcheckList();
 					})
 					.catch(e => {
-						console.log(e);
 						this.startGetHealthcheckList();
 					});
 			}
