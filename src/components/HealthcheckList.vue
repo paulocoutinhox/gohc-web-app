@@ -79,10 +79,6 @@
 			hcCount() {
 				return this.$store.getters.hcCount;
 			}
-		},
-		mounted() {
-			setTimeout(this.initSort, 1);
-			//this.$nextTick(() => this.$refs.hcTable.initSort());
 		}
 	}
 </script>

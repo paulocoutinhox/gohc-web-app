@@ -1,6 +1,6 @@
 <template>
 	<div class="container is-fluid">
-		<dashboard-item v-for="hc in hcList" v-bind:item="hc" v-bind:key="hc"></dashboard-item>
+		<dashboard-item v-for="hc in hcList" v-bind:item="hc" v-bind:key="hc.token"></dashboard-item>
 	</div>
 </template>
 
