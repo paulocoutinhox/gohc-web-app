@@ -13,8 +13,10 @@
 	"dependencies": {
 		"axios": "0.16.2",
 		"buefy": "0.4.6",
+		"chart.js": "2.6.0",
 		"font-awesome": "4.7.0",
 		"vue": "2.4.2",
+		"vue-chartjs": "2.7.2",
 		"vue-router": "2.7.0",
 		"vuex": "2.3.1"
 	},
