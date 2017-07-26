@@ -47,7 +47,7 @@
 			</b-tab-item>
 
 			<b-tab-item label="Chart" icon="pie-chart">
-				<status-chart id="chart"></status-chart>
+				<status-chart v-bind:chartData="this.chartData" v-bind:options="this.chartOptions" id="chart"></status-chart>
 			</b-tab-item>
 		</b-tabs>
 
@@ -68,7 +68,20 @@
 		name: 'healthcheck-list',
 		data () {
 			return {
-				activeTab: 0
+				activeTab: 0,
+				chartData: {
+					labels: ['Success', 'Warning', 'Error'],
+					datasets: [
+						{
+							backgroundColor: ['#39c558', '#ffbe41', '#ff3e43'],
+							data: [12, 20, 5]
+						}
+					]
+				},
+				chartOptions: {
+					responsive: false,
+					maintainAspectRatio: true
+				}
 			}
 		},
 		methods: {
@@ -83,7 +96,17 @@
 			},
 			initSort() {
 				this.$refs.hcTable.initSort();
-				console.log('sorted');
+			},
+			hcListUpdated() {
+				this.chartData = {
+					labels: ['Success', 'Warning', 'Error'],
+					datasets: [
+						{
+							backgroundColor: ['#39c558', '#ffbe41', '#ff3e43'],
+							data: [Math.floor(Math.random() * 12) + 1, Math.floor(Math.random() * 20) + 1, Math.floor(Math.random() * 5) + 1]
+						}
+					]
+				}
 			}
 		},
 		computed: {
@@ -93,6 +116,9 @@
 			hcCount() {
 				return this.$store.getters.hcCount;
 			}
+		},
+		watch: {
+			'hcList': 'hcListUpdated'
 		}
 	}
 </script>
