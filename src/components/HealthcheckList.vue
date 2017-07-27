@@ -71,8 +71,7 @@
 			return {
 				activeTab: 0,
 				hcChartOptions: {
-					responsive: false,
-					maintainAspectRatio: true
+					responsive: true
 				}
 			}
 		},
