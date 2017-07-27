@@ -47,7 +47,7 @@
 			</b-tab-item>
 
 			<b-tab-item label="Chart" icon="pie-chart">
-				<status-chart v-bind:chartData="this.chartData" v-bind:options="this.chartOptions" id="chart"></status-chart>
+				<status-chart v-bind:chartData="hcChartData" v-bind:options="hcChartOptions" id="chart"></status-chart>
 			</b-tab-item>
 		</b-tabs>
 
@@ -59,6 +59,7 @@
 	import AppFooter from "./AppFooter";
 	import {HC_TYPE_PING, HC_TYPE_RANGE, HC_TYPE_MANUAL} from "../utils/hc-type-constants";
 	import StatusChart from "./StatusChart";
+	import {HC_STATUS_ERROR, HC_STATUS_SUCCESS, HC_STATUS_WARNING} from "../utils/hc-status-constants";
 
 	export default {
 		components: {
@@ -69,16 +70,7 @@
 		data () {
 			return {
 				activeTab: 0,
-				chartData: {
-					labels: ['Success', 'Warning', 'Error'],
-					datasets: [
-						{
-							backgroundColor: ['#39c558', '#ffbe41', '#ff3e43'],
-							data: [12, 20, 5]
-						}
-					]
-				},
-				chartOptions: {
+				hcChartOptions: {
 					responsive: false,
 					maintainAspectRatio: true
 				}
@@ -93,20 +85,6 @@
 			},
 			hcTypeIsManual(value) {
 				return (value === HC_TYPE_MANUAL);
-			},
-			initSort() {
-				this.$refs.hcTable.initSort();
-			},
-			hcListUpdated() {
-				this.chartData = {
-					labels: ['Success', 'Warning', 'Error'],
-					datasets: [
-						{
-							backgroundColor: ['#39c558', '#ffbe41', '#ff3e43'],
-							data: [Math.floor(Math.random() * 12) + 1, Math.floor(Math.random() * 20) + 1, Math.floor(Math.random() * 5) + 1]
-						}
-					]
-				}
 			}
 		},
 		computed: {
@@ -115,10 +93,56 @@
 			},
 			hcCount() {
 				return this.$store.getters.hcCount;
+			},
+			hcChartData() {
+				const currentHcList = this.$store.getters.hcList;
+
+				let chartLabels = [];
+				let chartColors = [];
+				let chartDataset = [];
+
+				let chartDataForSuccess = 0;
+				let chartDataForWarning = 0;
+				let chartDataForError = 0;
+
+				for (const hc of currentHcList) {
+					if (hc.status === HC_STATUS_SUCCESS) {
+						chartDataForSuccess += 1;
+					} else if (hc.status === HC_STATUS_WARNING) {
+						chartDataForWarning += 1;
+					} else if (hc.status === HC_STATUS_ERROR) {
+						chartDataForError += 1;
+					}
+				}
+
+				if (chartDataForSuccess > 0) {
+					chartLabels.push("Success");
+					chartColors.push("#39c558");
+					chartDataset.push(chartDataForSuccess);
+				}
+
+				if (chartDataForWarning > 0) {
+					chartLabels.push("Warning");
+					chartColors.push("#ffbe41");
+					chartDataset.push(chartDataForWarning);
+				}
+
+				if (chartDataForError > 0) {
+					chartLabels.push("Error");
+					chartColors.push("#ff3e43");
+					chartDataset.push(chartDataForError);
+				}
+
+				return {
+					labels: chartLabels,
+					datasets: [
+						{
+							backgroundColor: chartColors,
+							data: chartDataset
+						}
+					]
+				}
 			}
-		},
-		watch: {
-			'hcList': 'hcListUpdated'
 		}
 	}
 </script>
