@@ -16,7 +16,7 @@
 					:pagination-simple="true"
 					:default-sort="['description', 'asc']">
 
-					<template scope="props">
+					<template slot-scope="props">
 						<b-table-column field="description" label="Description" sortable>
 							{{ props.row.description }}
 						</b-table-column>
@@ -148,6 +148,6 @@
 
 <style scoped>
 	.container {
-		margin-top: 20px;
+		margin-top: 80px;
 	}
 </style>

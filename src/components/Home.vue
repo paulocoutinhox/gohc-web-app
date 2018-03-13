@@ -55,7 +55,7 @@
 	}
 
 	.container h1 {
-		margin-top: 30px;
+		margin-top: 80px;
 	}
 
 	.container .logo {

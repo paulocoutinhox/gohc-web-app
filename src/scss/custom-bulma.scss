@@ -1,5 +1,8 @@
-@import "../../node_modules/bulma/sass/utilities/initial-variables";
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
 
-$primary: #2ABB9C;
+$blue: #2ABB9C;
+$link: #2ABB9C;
 
-@import "../../node_modules/bulma/bulma";
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
