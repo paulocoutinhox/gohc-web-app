@@ -8,7 +8,6 @@ import store from './vuex/store'
 import pingFormatFilter from "./filters/ping-format";
 import hcStatusFormatFilter from "./filters/hc-status-format";
 
-import 'buefy/lib/buefy.css'
 import 'font-awesome/css/font-awesome.css';
 
 Vue.config.productionTip = false;
