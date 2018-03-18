@@ -2,7 +2,7 @@
 	<div class="column is-2-desktop is-3-tablet is-6-mobile">
 		<div class="hc-item" v-bind:class="hcItemContainerClass(item.status)">
 			<span class="icon is-medium">
-				<span class="fa" v-bind:class="hcItemIconClass(item.status)"></span>
+				<span class="is-size-3 fa" v-bind:class="hcItemIconClass(item.status)"></span>
 			</span>
 
 			<p class="title">{{ item.description }}</p>
