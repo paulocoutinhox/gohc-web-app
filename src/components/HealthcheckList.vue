@@ -59,7 +59,7 @@
 	import AppFooter from "./AppFooter";
 	import {HC_TYPE_PING, HC_TYPE_RANGE, HC_TYPE_MANUAL} from "../utils/hc-type-constants";
 	import StatusChart from "./StatusChart";
-	import {HC_STATUS_ERROR, HC_STATUS_SUCCESS, HC_STATUS_WARNING} from "../utils/hc-status-constants";
+	import {HC_STATUS_ERROR, HC_STATUS_SUCCESS, HC_STATUS_WARNING, HC_STATUS_TIMEOUT} from "../utils/hc-status-constants";
 
 	export default {
 		components: {
@@ -103,6 +103,7 @@
 				let chartDataForSuccess = 0;
 				let chartDataForWarning = 0;
 				let chartDataForError = 0;
+				let chartDataForTimeout = 0;
 
 				for (const hc of currentHcList) {
 					if (hc.status === HC_STATUS_SUCCESS) {
@@ -111,6 +112,8 @@
 						chartDataForWarning += 1;
 					} else if (hc.status === HC_STATUS_ERROR) {
 						chartDataForError += 1;
+					} else if (hc.status === HC_STATUS_TIMEOUT) {
+						chartDataForTimeout += 1;
 					}
 				}
 
@@ -130,6 +133,12 @@
 					chartLabels.push("Error");
 					chartColors.push("#ff3e43");
 					chartDataset.push(chartDataForError);
+				}
+
+				if (chartDataForTimeout > 0) {
+					chartLabels.push("Timeout");
+					chartColors.push("#263238");
+					chartDataset.push(chartDataForTimeout);
 				}
 
 				return {

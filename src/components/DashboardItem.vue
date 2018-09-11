@@ -29,7 +29,7 @@
 
 <script>
 	import {HC_TYPE_PING, HC_TYPE_RANGE, HC_TYPE_MANUAL} from "../utils/hc-type-constants";
-	import {HC_STATUS_SUCCESS, HC_STATUS_WARNING, HC_STATUS_ERROR} from "../utils/hc-status-constants";
+	import {HC_STATUS_SUCCESS, HC_STATUS_WARNING, HC_STATUS_ERROR, HC_STATUS_TIMEOUT} from "../utils/hc-status-constants";
 
 	export default {
 		name: 'dashboard-item',
@@ -50,6 +50,8 @@
 					return 'warning';
 				} else if (value === HC_STATUS_ERROR) {
 					return 'error';
+				} else if (value === HC_STATUS_TIMEOUT) {
+					return 'timeout';
 				}
 
 				return '';
@@ -61,6 +63,8 @@
 					return 'fa-exclamation-circle';
 				} else if (value === HC_STATUS_ERROR) {
 					return 'fa-times-circle';
+				} else if (value === HC_STATUS_TIMEOUT) {
+					return 'fa-clock-o';
 				}
 
 				return '';
@@ -96,6 +100,12 @@
 		background-color: #ed5565;
 		color: #ffffff;
 		border-color: #ed5565;
+	}
+
+	.hc-item.timeout {
+		background-color: #263238;
+		color: #ffffff;
+		border-color: #263238;
 	}
 
 	.hc-item .title {
